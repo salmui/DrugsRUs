@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
   var user = sequelize.define("User", {
     id: {
-      type: Sequelize.INTEGER(11).UNSIGNED,
+      type: DataTypes.INTEGER(11).UNSIGNED,
       autoIncrement: true,
       primaryKey: true
     },
@@ -13,7 +13,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     email: {
-      type: DataTypes.String,
+      type: DataTypes.STRING,
       isUnique: true,
       allowNull: false,
       validate: {
@@ -21,8 +21,13 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     password: {
-      
-    }
-  });
+      type: DataTypes.STRING,
+      validate: {
+        len: {
+           args: [6, 20],
+           msg: "The password length should be between 7 and 20 characters."
+        }
+      }
+  };
   return User;
 };
