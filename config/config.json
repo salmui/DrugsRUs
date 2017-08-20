@@ -1,20 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "drugs_db",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  },
-  "test": {
-    "username": "root",
-    "password": null,
-    "database": "",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  },
-  "production": {
-    "use_env_variable": "JAWSDB_URL",
+    "username": "efr4rdgmp6x9y6vr",
+    "password": "t7dihw6xnfxamurb",
+    "database": "czavqbdfwjsder1b",
+    "host": "t89yihg12rw77y6f.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   }
 }
