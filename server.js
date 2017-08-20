@@ -23,6 +23,7 @@ app.set("view engine", "handlebars");
 
 // Import routes and give the server access.
 var router = require("./controllers/drug_controller.js");
+var routes = require('./controllers/')
 
 app.use("/", router);
 

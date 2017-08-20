@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var user = sequelize.define("User", {
+  var User = sequelize.define("User", {
     id: {
       type: DataTypes.INTEGER(11).UNSIGNED,
       autoIncrement: true,
@@ -25,9 +25,15 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         len: {
            args: [6, 20],
-           msg: "The password length should be between 7 and 20 characters."
+           msg: "The password length should be between 6 and 20 characters."
         }
       }
+  };
+
+  User.associate = function(models) {
+    User.hasMany(models.Meds, {
+      onDelete: 'cascade'
+    });
   };
   return User;
 };
