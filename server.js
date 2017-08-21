@@ -22,10 +22,10 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Import routes and give the server access.
-var router = require("./controllers/drug_controller.js");
-var routes = require('./controllers/')
+var router = require("./controllers/meds_controller.js");
+var routes = require('./controllers/users_controller.js')
 
-app.use("/", router);
+app.use("/", routes);
 
 db.sequelize.sync().then(function() {
   app.listen(PORT, function() {

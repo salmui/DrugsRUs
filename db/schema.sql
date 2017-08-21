@@ -1,3 +1,19 @@
-DROP DATABASE IF EXISTS `drugs_db`;
+DROP DATABASE IF EXISTS drugs_db;
 
-CREATE DATABASE `drugs_db`;
+CREATE DATABASE drugs_db;
+
+USE drugs_db;
+
+CREATE TABLE users(
+  id INT NOT NULL AUTO_INCREMENT,
+  user_name VARCHAR(150) NOT NULL,
+  email VARCHAR(150) NOT NULL,
+  password VARCHAR(20) NOT NULL,
+  PRIMARY KEY(id)
+);
+
+CREATE TABLE medicine(
+id INT NOT NULL AUTO_INCREMENT,
+medicine_name VARCHAR(150) NOT NULL,
+PRIMARY KEY(id)
+);

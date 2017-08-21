@@ -28,12 +28,13 @@ module.exports = function(sequelize, DataTypes) {
            msg: "The password length should be between 6 and 20 characters."
         }
       }
-  };
+    }
+  });
 
   User.associate = function(models) {
     User.hasMany(models.Meds, {
-      onDelete: 'cascade'
     });
-  };
+  }
+
   return User;
 };
