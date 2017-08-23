@@ -2,8 +2,10 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: top center;
-    background-size: 700px;
-    margin-top: -150px;
+    width: 825px;
+    height: 550px;
+    margin-top: -100px;
+    margin-left: 150px;
 }
 
 .wrapper {
@@ -32,6 +34,7 @@
   color: black;
   font-size: 35px;
   text-align: center;
+  margin-top: -25px;
 }
 
 #drug-general-info {
