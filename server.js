@@ -31,8 +31,8 @@ app.set("view engine", "handlebars");
 app.use("/", function(req, res) {
   res.render("index")
 })
-// db.sequelize.sync().then(function() {
+db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
-// });
+});
