@@ -1,4 +1,12 @@
 <div class="container">
+  {{#if user}}
+  	<h2>Hello,  Stranger.</h2>
+  {{else}}
+  	<h2>Welcome! Please log in.</h2>
+  {{/if}}
+</div>
+
+<div class="container">
   <div class="row">
     <div id="user-search">
       <div class="input-group col-md-12">
