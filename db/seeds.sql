@@ -1,5 +1,3 @@
--- INSERT INTO users (user_name, email)
--- VALUES
--- ('Patient A');
-
--- INSERT INTO 
+INSERT INTO users (name, email, password)
+VALUES
+('Patient A', 'mark@gmail.com', 'password');
