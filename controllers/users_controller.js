@@ -3,8 +3,10 @@ var db = require("../models");
 module.exports = function(app) {
   app.get('/', function(req, res) {
     db.User.findAll({}).then(function(results){
-      console.log(results);
-      res.json(results);
+      var hbsObject = {
+      user: results
+    };
+      res.render('index', hbsObject);
     });
   });
 
