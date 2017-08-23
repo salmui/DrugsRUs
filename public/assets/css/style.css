@@ -1,10 +1,11 @@
-.background {
-    background-image: url("img/pillbox4.jpg");
+#pillbox4 {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: top center;
-    background-size: 700px;
-    margin-top: 400px;
+    width: 825px;
+    height: 550px;
+    margin-top: -100px;
+    margin-left: 150px;
 }
 
 .wrapper {
@@ -15,13 +16,13 @@
     width: 90%;
     padding: 10px;
     border-radius: 10px;
-    height: 80px;
+    height: 60px;
     float: left;
 }
 
 .glyphicon-search {
     padding: 7px 12px 7px 12px;
-    margin-top: 40px;
+    margin-top: 20px;
     margin-left: 30%;
     border-radius: 100px;
     color: white;
@@ -33,6 +34,7 @@
   color: black;
   font-size: 35px;
   text-align: center;
+  margin-top: -25px;
 }
 
 #drug-general-info {
@@ -52,8 +54,9 @@
   padding: 25px;
   color: #FFF;
   background: #5DBEDF;
-  border-radius: 25px;
+  border-radius: 10px;
   border: none;
+  margin: 50px 100px 50px 0px;
 }
 
 #drugPrescription {

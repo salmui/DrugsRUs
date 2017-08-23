@@ -6,8 +6,6 @@ var db = require("./models");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
-
-// Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
 app.use(bodyParser.json());
 app.use(bodyParser.text());
@@ -28,14 +26,8 @@ app.set("view engine", "handlebars");
 // Import routes and give the server access.
 var routes = require('./controllers')(app);
 
-db.sequelize.sync({ force:false }).then(function() {
+db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
 });
-
-// app.use("/", function(req, res) {
-//   res.render("index")
-// });
-
-
