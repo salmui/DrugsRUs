@@ -14,11 +14,11 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  // Meds.associate = function(models) {
-  //   Meds.belongsTo(models.User, {
-  //    onDelete: 'cascade'
-  //   });
-  // };
+  Meds.associate = function(models) {
+    Meds.belongsTo(models.User, {
+     onDelete: 'cascade'
+    });
+  };
 
   return Meds;
 };

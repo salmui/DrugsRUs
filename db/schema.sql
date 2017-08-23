@@ -1,5 +1,3 @@
-DROP DATABASE IF EXISTS drugs_db;
-
 CREATE DATABASE drugs_db;
 
 USE drugs_db;
