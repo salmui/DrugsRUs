@@ -31,10 +31,10 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  User.associate = function(models) {
-    User.hasMany(models.Meds, {
-    });
-  }
+  // User.associate = function(models) {
+  //   User.hasMany(models.Meds, {
+  //   });
+  // }
 
   return User;
 };
