@@ -1,12 +1,13 @@
 <div class="container">
   <div class="row">
+    <img src="/assets/img/pillbox4.jpg" alt="pillbox" id="pillbox4">
     <div id="user-search">
       <div class="input-group col-md-12">
-        <form method="get" action="/searchResults">
+        <form method="get" action="/">
           <h2 id="text">SEARCH FOR DRUG:</h2>
-            <input type="text" id="searchTextbox" name="searchdrug" placeholder=" Search..." required="">
+            <input type="text" id="drug" name="searchdrug" placeholder=" Search..." required="">
             <!-- <input type="submit" name="search" value="Search" id="searchButton"> -->
-            <button type="submit" class="btn btn-info">
+            <button type="drug-submit" class="btn btn-info">
               <span class="glyphicon glyphicon-search"></span>
             </button>
             </span>
@@ -14,4 +15,51 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="row">
+  <!-- <div class="col-sm-8 col-sm-offset-2" style="display: none;"> -->
+  <div class="col-md-8 col-md-offset-2">
+    <h2>Drug Information:</h2>
+    <hr>
+  <div class="border row">
+    <div class="border col-md-6">Drug Input #1 General Information: <br> Brand Name,<br> Generic Name, <br> Description, <br> Indication</div>
+    <div class="border col-md-6">Drug Input #2 General Information: <br> Brand Name,<br> Generic Name, <br> Description, <br> Indication</div>
+  </div>
+    <hr>
+  <div class="border col-md-12">
+    <div class="drug-area">Interaction will go here: All interactions between the two drugs will go here. This div fills up the whole width of the page</div>
+
+    <!-- <div class="drugcheck">
+      <div id="drugcheck_found" style="display: none;">
+        <div id="drugcheck_list" style="display: none;">
+          <h4 class="contraindicated">Drug Check</h4>
+          <ul id="drugcheck_dc"> </ul>
+        </div>
+        <div id="generalinfo" style="display: none;">
+          <h4 class="general">General Info</h4>
+          <ul id="generalinfo_dc"> </ul>
+        </div>
+        <div id="validatorinfo" style="display: none;">
+          <h4 class="validator">Validator</h4>
+          <ul id="validatorinfo_dc"> </ul>
+        </div>
+        <div id="warninginfo" style="display: none;">
+          <h4 class="warning">Warning</h4>
+          <ul id="warninginfo_dc"> </ul> -->
+    </div>
+  </div>
+</div>
+
+    <div style="text-align: center">
+      <button type="button" id="drugChoice" style="display: none;">COMPARE</button>
+      <!-- <button type="button" id="drugChoice">COMPARE</button> -->
+
+
+      <div class="divider"/>
+      <button type="button" id="drugPrescription" style="display: none;">COMPARE DRUG <br> WITH YOUR PRESCRIPTION</button>
+    </div>
+  </div>
+</div>
+</div>
 </div>

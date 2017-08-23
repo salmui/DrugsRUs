@@ -1,18 +1,17 @@
-var express = require('express');
-var router = express.Router();
-var user = require('../models/user.js');
+var db = require("../models");
 
-router.get('/', function(req, res) {
-  user.all(function(data) {
-    var hbsObject = {
-      users: data
+module.exports = function(app) {
+  app.get('/', function(req, res) {
+    db.User.findAll({}).then(function(results){
+      var hbsObject = {
+      user: results
     };
-    res.render('index', hbsObject);
+      res.render('index', hbsObject);
+    });
   });
-});
 
-router.post('/', function(req, res) {
-  user.create([
+app.post('/', function(req, res) {
+  db.User.create([
     'user_name'
     ], [
     req.body.user_name
@@ -29,9 +28,9 @@ router.post('/', function(req, res) {
     });
 });
 
-router.put('/:id', function(req, res) {
+app.put('/:id', function(req, res) {
   var condition = 'id = ' + req.params.id;
 
-});
-
-module.exports = router;
+  });
+};
+// module.exports = router;
