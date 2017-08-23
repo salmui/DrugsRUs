@@ -2,15 +2,16 @@
     background-image: url("img/pillbox4.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position: right bottom;
-    margin-top: 200px;
+    background-position: top center;
+    background-size: 700px;
+    margin-top: 400px;
 }
 
 .wrapper {
     overflow: hidden;
 }
 
-#searchTextbox {
+#drug {
     width: 90%;
     padding: 10px;
     border-radius: 10px;
@@ -32,4 +33,33 @@
   color: black;
   font-size: 35px;
   text-align: center;
+}
+
+#drug-general-info {
+  display: inline-block;
+  width: 140px;
+  min-height: 1px;
+}
+
+.divider {
+  padding: 0 100px 0 100px;
+  margin-left: 30px;
+  height:auto;
+  display:inline-block;
+}
+
+#drugChoice {
+  padding: 25px;
+  color: #FFF;
+  background: #5DBEDF;
+  border-radius: 25px;
+  border: none;
+}
+
+#drugPrescription {
+  padding: 25px;
+  color: #FFF;
+  background: #5DBEDF;
+  border-radius: 25px;
+  border: none;
 }
