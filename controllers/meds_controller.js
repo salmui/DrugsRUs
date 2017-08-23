@@ -24,7 +24,7 @@ router.post('/userMeds', function(req, res) {
 router.put('/:id', function(req, res) {
   var condition = 'id = ' + req.params.id;
   med.update({
-    medicine_name: req.body.medicine_name;
+    medicine_name: req.body.medicine_name
   }, condition, function(){
     res.redirect('/userMeds');
   });
