@@ -11,8 +11,9 @@ module.exports = function(app) {
   });
 
   app.post('/', function(req, res) {
+    console.log(req);
     db.User.create([
-      'user_name'
+      'name'
       ], [
       req.body.name
       ], [

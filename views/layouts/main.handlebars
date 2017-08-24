@@ -8,7 +8,7 @@
       <!-- Main app CSS -->
       <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
       <!-- Custom Fonts -->
-      <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!--       <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
 
       <title>DrugsRUs</title>
       <div class="g-signin2" data-onsuccess="onSignIn"></div>
@@ -18,7 +18,7 @@
   <body>
   	{{{ body }}}
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="/js/drugs.js" charset="utf-8"></script>
+    <script src="assets/js/drugs.js" charset="utf-8"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
   </body>
 </html>
@@ -30,6 +30,8 @@
     console.log('Name: ' + profile.getName());
     console.log('Image URL: ' + profile.getImageUrl());
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+    var id_token = googleUser.getAuthResponse().id_token;
+    console.log(id_token);
   }
 
   function signOut() {
