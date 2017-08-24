@@ -3,18 +3,44 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-client_id" content="859577265092-qgpnim2fks7lbd6s086vsm8uf3c0pppo.apps.googleusercontent.com">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" />
       <!-- Main app CSS -->
       <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
       <!-- Custom Fonts -->
-      <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+      <!-- <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
 
       <title>DrugsRUs</title>
+      <div class="g-signin2" data-onsuccess="onSignIn"></div>
+      <a class="g-signout" href="" style="display: none;" onclick="signOut();">Sign out</a>
   </head>
 
   <body>
   	{{{ body }}}
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="/js/drugs.js" charset="utf-8"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
   </body>
 </html>
+
+<script>
+  function onSignIn(googleUser) {
+    var profile = googleUser.getBasicProfile();
+    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+  }
+
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+
+  $(".g-signin2").click(function() {
+    // $(".g-signin2").hide();
+    $(".g-signout").show();
+  });
+</script>
