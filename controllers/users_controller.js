@@ -10,27 +10,29 @@ module.exports = function(app) {
     });
   });
 
-app.post('/', function(req, res) {
-  db.User.create([
-    'user_name'
-    ], [
-    req.body.user_name
-    ], [
-    'email'
-    ], [
-    req.body.email
-    ], [
-    'password'
-    ], [
-    req.body.password
-    ], function(){
-      res.redirect('/');
-    });
-});
-
-app.put('/:id', function(req, res) {
-  var condition = 'id = ' + req.params.id;
-
+  app.post('/', function(req, res) {
+    db.User.create([
+      'user_name'
+      ], [
+      req.body.name
+      ], [
+      'email'
+      ], [
+      req.body.email
+      ], [
+      'password'
+      ], [
+      req.body.password
+      ], function(){
+        res.redirect('/');
+      });
   });
+
+  app.put('/user/:id', function(req, res) {
+    var condition = 'id = ' + req.params.id;
+    db.User.update({
+      name: req.body.name
+    });
+  });
+
 };
-// module.exports = router;
