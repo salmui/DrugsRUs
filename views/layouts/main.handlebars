@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-signin-client_id" content="859577265092-qgpnim2fks7lbd6s086vsm8uf3c0pppo.apps.googleusercontent.com">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" />
-      <!-- Main app CSS -->
-      <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
-      <!-- Custom Fonts -->
-<!--       <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
 
-      <title>DrugsRUs</title>
-      <div class="g-signin2" data-onsuccess="onSignIn"></div>
-      <a class="g-signout" href="" onclick="signOut();">Sign out</a>
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-signin-client_id" content="859577265092-qgpnim2fks7lbd6s086vsm8uf3c0pppo.apps.googleusercontent.com">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" />
+  <!-- Main app CSS -->
+  <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/userStyle.css"
+  <!-- Custom Fonts -->
+  <!--       <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
 
-  <body>
-  	{{{ body }}}
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="assets/js/drugs.js" charset="utf-8"></script>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-  </body>
+  <title>DrugsRUs</title>
+  <div class="g-signin2" data-onsuccess="onSignIn" href="/user"></div>
+  <a class="g-signout" href="" onclick="signOut();">Sign out</a>
+</head>
+
+<body>
+  {{{ body }}}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="assets/js/drugs.js" charset="utf-8"></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+</body>
+
 </html>
 
 <script>
@@ -39,18 +42,22 @@
     $.ajax({
       type: 'POST',
       url: '/',
-      data: { name: name,
-              email: email },
-      success: function(data) {
-        console.log('message', + data.message);
+      data: {
+        name: name,
+        email: email
       },
-      error: function(jqXHR, textStatus, err) {
-        alert('text status '+textStatus+', err '+err)
+      async: false,
+      success: function(data) {
+        console.log('message', +data.message);
       }
+      // ,
+      // error: function(jqXHR, textStatus, err) {
+      //   alert('text status ' + textStatus + ', err ' + err)
+      // }
     });
     // below code is server side authentication for user
     // var xhr = new XMLHttpRequest();
-    // xhr.open('POST', 'localhost:3000');
+    // xhr.open('POST', '/');
     // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     // xhr.onload = function() {
     // console.log('Signed in as: ' + xhr.responseText);
@@ -61,7 +68,7 @@
 
   function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
+    auth2.signOut().then(function() {
       console.log('User signed out.');
     });
   }
