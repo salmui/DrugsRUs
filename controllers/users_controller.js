@@ -11,20 +11,20 @@ module.exports = function(app) {
   });
 
   app.post('/', function(req, res) {
-    console.log(req);
-    db.User.create([
-      'name'
-      ], [
-      req.body.name
-      ], [
-      'email'
-      ], [
-      req.body.email
-      ], [
-      'password'
-      ], [
-      req.body.password
-      ], function(){
+    console.log(req.body.name);
+    console.log(req.body.email);
+    console.log('hello');
+    db.User.create({
+      name: req.body.name,
+      email: req.body.email
+      },
+      // [
+      // 'password'
+      // ],
+      // [
+      // req.body.password
+      // ],
+      function(){
         res.redirect('/');
       });
   });

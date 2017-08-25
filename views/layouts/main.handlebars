@@ -32,6 +32,31 @@
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
     var id_token = googleUser.getAuthResponse().id_token;
     console.log(id_token);
+
+    var name = profile.getName();
+    var email = profile.getEmail();
+
+    $.ajax({
+      type: 'POST',
+      url: '/',
+      data: { name: name,
+              email: email },
+      success: function(data) {
+        console.log('message', + data.message);
+      },
+      error: function(jqXHR, textStatus, err) {
+        alert('text status '+textStatus+', err '+err)
+      }
+    });
+    // below code is server side authentication for user
+    // var xhr = new XMLHttpRequest();
+    // xhr.open('POST', 'localhost:3000');
+    // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    // xhr.onload = function() {
+    // console.log('Signed in as: ' + xhr.responseText);
+    // };
+    // console.log(xhr);
+    // xhr.send('idtoken=' + id_token);
   }
 
   function signOut() {
