@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" />
       <!-- Main app CSS -->
       <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+      <link rel="stylesheet" href="/assets/js/alertify.js-0.3.11/themes/alertify.core.css" />
+      <link rel="stylesheet" href="/assets/js/alertify.js-0.3.11/themes/alertify.default.css" />
+
       <!-- Custom Fonts -->
       <!-- <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
 
@@ -17,13 +20,45 @@
 
   <body>
   	{{{ body }}}
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src ="/assets/js/authentication.js"></script>
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="/js/drugs.js" charset="utf-8"></script>
+    <script src="/assets/js/drugs.js" charset="utf-8"></script>
+    	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="/assets/js/alertify.js-0.3.11/lib/alertify.min.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
   </body>
 </html>
 
 <script>
+$(".g-signin2").click(function() {
+  // $(".g-signin2").hide();
+  $(".g-signout").show();
+});
+
+function reset () {
+  $("#toggleCSS").attr("href", "../themes/alertify.default.css");
+  alertify.set({
+    labels : {
+      ok     : "OK",
+      cancel : "Cancel"
+    },
+    delay : 5000,
+    buttonReverse : false,
+    buttonFocus   : "ok"
+  });
+}
+
+// Custom Properties
+$("#drug-submit").on( 'click', function () {
+  reset();
+  alertify.set({ delay: 3000 });
+  alertify.log("Searching for Drug . . .");
+  return false;
+});
+</script>
+
+<!-- <script>
   function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
     console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
@@ -43,4 +78,4 @@
     // $(".g-signin2").hide();
     $(".g-signout").show();
   });
-</script>
+</script> -->
