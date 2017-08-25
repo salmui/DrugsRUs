@@ -19,23 +19,24 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         isEmail: {msg: 'Reason'}
       }
-    },
-    password: {
-      type: DataTypes.STRING,
-      validate: {
-        len: {
-           args: [6, 20],
-           msg: "The password length should be between 6 and 20 characters."
-        }
-      }
     }
+    // ,
+    // password: {
+    //   type: DataTypes.STRING,
+    //   validate: {
+    //     len: {
+    //        args: [6, 20],
+    //        msg: "The password length should be between 6 and 20 characters."
+    //     }
+    //   }
+    // }
   });
 
   User.associate = function(models) {
     User.hasMany(models.Meds, {
       onDelete: 'cascade'
     });
-  }
+  };
 
   return User;
-}
+};

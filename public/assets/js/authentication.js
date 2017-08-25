@@ -4,6 +4,22 @@
     console.log('Name: ' + profile.getName());
     console.log('Image URL: ' + profile.getImageUrl());
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+
+    var name = profile.getName();
+    var email = profile.getEmail();
+
+    $.ajax({
+      type: 'POST',
+      url: '/',
+      data: { name: name,
+              email: email },
+      success: function(data) {
+        console.log('message', + data.message);
+      },
+      error: function(jqXHR, textStatus, err) {
+        alert('text status '+textStatus+', err '+err)
+      }
+    });
   }
 
   function signOut() {

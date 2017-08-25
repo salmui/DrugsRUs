@@ -11,19 +11,12 @@ module.exports = function(app) {
   });
 
   app.post('/', function(req, res) {
-    db.User.create([
-      'user_name'
-      ], [
-      req.body.name
-      ], [
-      'email'
-      ], [
-      req.body.email
-      ], [
-      'password'
-      ], [
-      req.body.password
-      ], function(){
+    // add code to check if user is in db
+    db.User.create({
+      name: req.body.name,
+      email: req.body.email
+      },
+      function(){
         res.redirect('/');
       });
   });
