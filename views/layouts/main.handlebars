@@ -8,7 +8,7 @@
       <!-- Main app CSS -->
       <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
       <!-- Custom Fonts -->
-      <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!--       <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
 
       <title>DrugsRUs</title>
       <div class="g-signin2" data-onsuccess="onSignIn"></div>
@@ -18,7 +18,7 @@
   <body>
   	{{{ body }}}
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="/js/drugs.js" charset="utf-8"></script>
+    <script src="assets/js/drugs.js" charset="utf-8"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
   </body>
 </html>
@@ -30,6 +30,33 @@
     console.log('Name: ' + profile.getName());
     console.log('Image URL: ' + profile.getImageUrl());
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+    var id_token = googleUser.getAuthResponse().id_token;
+    console.log(id_token);
+
+    var name = profile.getName();
+    var email = profile.getEmail();
+
+    $.ajax({
+      type: 'POST',
+      url: '/',
+      data: { name: name,
+              email: email },
+      success: function(data) {
+        console.log('message', + data.message);
+      },
+      error: function(jqXHR, textStatus, err) {
+        alert('text status '+textStatus+', err '+err)
+      }
+    });
+    // below code is server side authentication for user
+    // var xhr = new XMLHttpRequest();
+    // xhr.open('POST', 'localhost:3000');
+    // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    // xhr.onload = function() {
+    // console.log('Signed in as: ' + xhr.responseText);
+    // };
+    // console.log(xhr);
+    // xhr.send('idtoken=' + id_token);
   }
 
   function signOut() {
