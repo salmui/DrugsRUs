@@ -52,7 +52,5 @@ $('#drugChoice').on("click", function(event){
   }
     $("#druginfo").show();
     // $("#drugChoice").show();
-    $("#druginput1").append($("#drug").val());
-    $("#druginput2").append($("#drug").val());
     // $("#druginteractions").append($(#interaction))
 });

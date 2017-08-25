@@ -1,10 +1,12 @@
-module.exports = function(sequelize, DataTypes) {
-    var Meds_Interactions = sequelize.define("Meds_Interactions", {
-      med1_id: DataTypes.INTEGER,
-      med2_id: DataTypes.INTEGER,
-      med1_name: DataTypes.STRING(500),
-      med2_name: DataTypes.STRING(500),
-      interaction: DataTypes.STRING(2000)
+var db = require('../models');
+
+module.exports = function(app) {
+  app.get('/interactions', function(req, res) {
+    db.Meds_Interactions.findAll({}).then(function(data) {
+      var hbsObject = {
+        meds: data
+      };
+      res.render('index', hbsObject);
     });
-    return Meds_Interactions;
-  };
+  });
+};
