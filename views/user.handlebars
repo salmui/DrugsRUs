@@ -1,3 +1,5 @@
+<a class="g-signout" href="" onclick="signOut();">Sign out</a>
+
 <div class="stage">
   <div class="cubespinner">
     <div class="face face1"></div>
@@ -8,12 +10,14 @@
     <div class="face face6"></div>
   </div>
 </div>
+
 <div class="container">
-{{#each meds}}
+
+{{#each medicine}}
 {{this.medicine_name}}
 {{/each}}
 
-{{#each users}}
-{{this.user_name}}
+{{#each Users}}
+{{this.name}}
 {{/each}}
 </div>

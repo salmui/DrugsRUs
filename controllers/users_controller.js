@@ -12,8 +12,8 @@ module.exports = function(app) {
 
   app.post('/', function(req, res) {
     // add code to check if user is in db
-    console.log(req.body.name);
-    console.log(req.body.email);
+    // console.log(req.body.name);
+    // console.log(req.body.email);
     db.User.findOrCreate({
       where: {
       email: req.body.email
@@ -28,8 +28,8 @@ module.exports = function(app) {
       });
   });
 
-  app.put('/user/:id', function(req, res) {
-    var condition = 'id = ' + req.params.id;
+  app.put('/user', function(req, res) {
+    // var condition = 'id = ' + req.params.id;
     db.User.update({
       name: req.body.name,
       email: req.body.email
