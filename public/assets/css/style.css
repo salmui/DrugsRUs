@@ -67,6 +67,22 @@
   border: none;
 }
 
-/*.g-signout {
-  display: none;
-}*/
+.g-signin2 {
+  float: right;
+}
+
+.g-signout {
+  /*display: none;*/
+  padding: 8.5px;
+  color: #FFF;
+  background: #5DBEDF;
+  margin-right: 3px;
+  box-shadow: 2px 2px #D3D3D3;
+  /*border-radius: 10px;*/
+  border: none;
+  float: right;
+}
+.g-signout:hover {
+  color: rgba(255, 255, 255, 1);
+  box-shadow: yellow;
+}
