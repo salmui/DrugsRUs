@@ -1,19 +1,35 @@
-<div class="stage">
-  <div class="cubespinner">
-    <div class="face face1"></div>
-    <div class="face face2"></div>
-    <div class="face face3"></div>
-    <div class="face face4"></div>
-    <div class="face face5"></div>
-    <div class="face face6"></div>
+<a class="g-signout" href="" onclick="signOut();">Sign out</a>
+
+<div class="jumobotron">
+  <div class="stage">
+    <div class="cubespinner">
+      <div class="face face1"></div>
+      <div class="face face2"></div>
+      <div class="face face3"></div>
+      <div class="face face4"></div>
+      <div class="face face5"></div>
+      <div class="face face6"></div>
+    </div>
   </div>
 </div>
+
 <div class="container">
-{{#each meds}}
+{{log 'this is the result of this:' this}}
+{{log 'Medicine right now is an empty array: Medicine[0] returns error: ' Medicine}}
+
+{{log '*************'}}
+{{#each User}}
+{{this.name}}
+{{this.email}}
+{{/each}}
+{{log '@@@@@@@@@@@'}}
+
+{{#each Medicine}}
+{{log this}}
+{{log 'hello can u see me?'}}
 {{this.medicine_name}}
 {{/each}}
 
-{{#each users}}
-{{this.user_name}}
-{{/each}}
+{{log 'end of testing'}}
+
 </div>

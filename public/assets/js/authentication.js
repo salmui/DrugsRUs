@@ -13,12 +13,14 @@
       url: '/',
       data: { name: name,
               email: email },
+      async: false,
       success: function(data) {
         console.log('message', + data.message);
-      },
-      error: function(jqXHR, textStatus, err) {
-        alert('text status '+textStatus+', err '+err)
       }
+      // ,
+      // error: function(jqXHR, textStatus, err) {
+      //   alert('text status '+textStatus+', err '+err)
+      // }
     });
   }
 
