@@ -1,38 +1,41 @@
 var db = require('../models');
 
 module.exports = function(app) {
-  app.get('/meds', function(req, res) {
-    db.Meds.findAll({}).then(function(data) {
+  app.get('/medicine', function(req, res) {
+    db.Medicine.findAll({}).then(function(data) {
       var hbsObject = {
-        meds: data
+        Medicine: data
       };
       res.render('index', hbsObject);
     });
   });
 
-  app.post('/meds', function(req, res) {
-    db.Meds.create([
-      'medicine'
-      ], [
-      req.body.medicine_name
-      ], function() {
+  app.post('/medicine', function(req, res) {
+    db.Medicine.create(
+      // [
+      // 'medicine'
+      // ], [
+      // req.body.medicine_name
+      // ],
+      { medicine_name: req.body.medicine_name },
+      function() {
         res.redirect('/');
     });
   });
 
-  app.put('/meds/:id', function(req, res) {
+  app.put('/medicine/:id', function(req, res) {
     var condition = 'id = ' + req.params.id;
-    db.Meds.update({
+    db.Medicine.update({
         medicine_name: req.body.medicine_name
       }, condition, function(){
-        res.redirect('/meds');
+        res.redirect('/medicine');
     });
   });
 
   app.delete('/:id', function(req, res) {
     var condition = 'id = ' + req.params.id;
-    db.Meds.destroy(condition, function() {
-      res.redirect('/meds');
+    db.Medicine.destroy(condition, function() {
+      res.redirect('/medicine');
     });
   });
 

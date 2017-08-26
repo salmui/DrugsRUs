@@ -11,9 +11,6 @@ module.exports = function(app) {
   });
 
   app.post('/', function(req, res) {
-    // add code to check if user is in db
-    // console.log(req.body.name);
-    // console.log(req.body.email);
     db.User.findOrCreate({
       where: {
       email: req.body.email
@@ -37,6 +34,12 @@ module.exports = function(app) {
   });
 
   app.get('/user', function(req, res) {
-    res.render('user');
-  })
+    db.Medicine.findAll({}).then(function(results){
+      console.log(results);
+      var hbsObject = {
+      Medicine: results
+    };
+      res.render('user', hbsObject);
+    });
+  });
 };
