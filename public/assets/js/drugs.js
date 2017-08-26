@@ -1,3 +1,20 @@
+var type = 'brand_name:' //change this to either brand_name or generic_name depending on the searchto be performed.
+var med = 'Tylenol'; //this is the term (brand or generic) to be searched
+var queryURL = "https://api.fda.gov/drug/label.json?api_key=KyKEcTqedZfpcgwkn5LpZryaZBCkRWJaU9215u08&search=" + type + med;
+
+// console.log(queryURL);
+$.ajax({
+  url: queryURL,
+  method: "GET"
+}).done(function(response) {
+  // console.log(response);
+  console.log("Brand: " + response.results[0].openfda.brand_name[0]);
+  console.log("Generic: " + response.results[0].openfda.generic_name[0]);
+  console.log("Description: " + response.results[0].description[0]);
+  // console.log("Interactions: " + response.results[0].drug_interactions[0]);
+  console.log("Indication: " + response.results[0].indications_and_usage[0]);
+});
+
 //input drug #1 into search bar and append API info to first column
 $('#drug-submit').on("click", function(event){
   event.preventDefault();
@@ -15,6 +32,7 @@ $('#drug-submit').on("click", function(event){
     // $("#drugChoice").show();
     $("#druginput1").append($("#drug").val());
     // $("#druginput2").append($("#drug").val());
+    $("#drug").val();
 });
 
 //input drug #1 into search bar and append API info to first column
@@ -54,3 +72,5 @@ $('#drugChoice').on("click", function(event){
     // $("#drugChoice").show();
     // $("#druginteractions").append($(#interaction))
 });
+
+// $("#drug-submit").
