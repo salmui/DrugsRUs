@@ -6,7 +6,7 @@ module.exports = function(app) {
       var hbsObject = {
         Medicine: data
       };
-      res.render('index', hbsObject);
+      res.render('user', hbsObject);
     });
   });
 

@@ -1,13 +1,15 @@
 <a class="g-signout" href="" onclick="signOut();">Sign out</a>
 
-<div class="stage">
-  <div class="cubespinner">
-    <div class="face face1"></div>
-    <div class="face face2"></div>
-    <div class="face face3"></div>
-    <div class="face face4"></div>
-    <div class="face face5"></div>
-    <div class="face face6"></div>
+<div class="jumobotron">
+  <div class="stage">
+    <div class="cubespinner">
+      <div class="face face1"></div>
+      <div class="face face2"></div>
+      <div class="face face3"></div>
+      <div class="face face4"></div>
+      <div class="face face5"></div>
+      <div class="face face6"></div>
+    </div>
   </div>
 </div>
 
@@ -16,6 +18,11 @@
 {{log 'Medicine right now is an empty array: Medicine[0] returns error: ' Medicine}}
 
 {{log '*************'}}
+{{#each User}}
+{{this.name}}
+{{this.email}}
+{{/each}}
+{{log '@@@@@@@@@@@'}}
 
 {{#each Medicine}}
 {{log this}}

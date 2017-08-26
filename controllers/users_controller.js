@@ -25,21 +25,28 @@ module.exports = function(app) {
       });
   });
 
-  app.put('/user', function(req, res) {
-    // var condition = 'id = ' + req.params.id;
-    db.User.update({
-      name: req.body.name,
-      email: req.body.email
-    });
-  });
+  // app.put('/user', function(req, res) {
+  //   // var condition = 'id = ' + req.params.id;
+  //   db.User.update({
+  //     name: req.body.name,
+  //     email: req.body.email
+  //   });
+  // });
 
   app.get('/user', function(req, res) {
-    db.Medicine.findAll({}).then(function(results){
-      console.log(results);
-      var hbsObject = {
-      Medicine: results
-    };
-      res.render('user', hbsObject);
+    db.User.findAll({}).then(function(data){
+      console.log(data);
+      var userObj = {
+        User: data
+      };
+      db.Medicine.findAll({}).then(function(results){
+        console.log(results);
+        var hbsObject = {
+        Medicine: results
+      };
+        // res.render('user', userObj); this works to send the user info over
+        res.render('user', hbsObject);
+      });
     });
   });
 };

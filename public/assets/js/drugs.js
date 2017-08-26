@@ -15,6 +15,7 @@ $('#drug-submit').on("click", function(event){
     // $("#drugChoice").show();
     $("#druginput1").append($("#drug").val());
     // $("#druginput2").append($("#drug").val());
+    $("#drug").val('');
 });
 
 //input drug #1 into search bar and append API info to first column
