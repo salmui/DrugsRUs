@@ -34,19 +34,23 @@ module.exports = function(app) {
   // });
 
   app.get('/user', function(req, res) {
-    db.User.findAll({}).then(function(data){
+    db.User.findAll({
+      include: {
+        model: db.Medicine
+      }
+    }).then(function(data){
       console.log(data);
       var userObj = {
         User: data
       };
-      db.Medicine.findAll({}).then(function(results){
-        console.log(results);
-        var hbsObject = {
-        Medicine: results
-      };
+      // db.Medicine.findAll({}).then(function(results){
+      //   console.log(results);
+      //   var hbsObject = {
+      //   Medicine: results
+      // };
         // res.render('user', userObj); this works to send the user info over
-        res.render('user', hbsObject);
-      });
+        res.render('user', userObj);
+      // });
     });
   });
 };
