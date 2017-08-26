@@ -21,18 +21,13 @@ $('#drug-submit').on("click", function(event){
 
   // var text = "";
   var input = $('#drug');
-  var textLocation = $(input).val().indexOf(text);
+  var textLocation = $(input).val();
 
-  if(textLocation === -1){
-    $(input).val( $(input).val());
-  }else{
-    $(input).val( $(input).val().substr(0, textLocation));
-  }
-    $("#druginfo").show();
-    // $("#drugChoice").show();
-    $("#druginput1").append($("#drug").val());
-    // $("#druginput2").append($("#drug").val());
-    $("#drug").val();
+  var div1 = $('<div class="test2 col-md-6">');
+  div1.append("<h2>" + textLocation + "</h2>");
+  div1.append($('</div>'));
+  $('.test1').append(div1);
+  $("#drug").val();
 });
 
 //input drug #1 into search bar and append API info to first column

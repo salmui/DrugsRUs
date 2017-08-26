@@ -1,11 +1,11 @@
 module.exports = function(sequelize, DataTypes) {
-  var Meds = sequelize.define('Meds', {
+  var Medicine = sequelize.define('Medicine', {
     id: {
       type: DataTypes.INTEGER(11).UNSIGNED,
       autoIncrement: true,
       primaryKey: true
     },
-    name: {
+    medicine_name: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -14,11 +14,13 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  Meds.associate = function(models) {
-    Meds.belongsTo(models.User, {
-     onDelete: 'cascade'
+  Medicine.associate = function(models) {
+    Medicine.belongsTo(models.User, {
+     foreignKey: {
+      allowNull: false
+     }
     });
   };
 
-  return Meds;
+  return Medicine;
 };

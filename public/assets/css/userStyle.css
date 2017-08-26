@@ -1,7 +1,13 @@
+.jumbotron {
+}
 .stage {
   display:flex;
   justify-content:center;
   align-items:center;
+  padding-top: 15%;
+}
+.face {
+
 }
 .face1 {
   background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNmQTzJRPX0PExm3AL3_VLLMI1AFCDoinm1By-z-NcfOSktXDICw') !important;
